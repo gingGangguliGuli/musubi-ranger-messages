@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Power Ranger Messages</title>
+  <title>Musubi Ranger Messages</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,6 +13,7 @@
       text-align: center;
       padding: 40px;
     }
+
     .ranger-button {
       padding: 12px 20px;
       margin: 10px;
@@ -22,29 +23,41 @@
       color: white;
       cursor: pointer;
     }
+
     .Red { background: #e74c3c; }
     .Blue { background: #3498db; }
     .Green { background: #27ae60; }
     .Yellow { background: #f1c40f; color: black; }
     .Pink { background: #e91e63; }
     .Black { background: #2c3e50; }
+
     #message {
-      margin-top: 30px;
-      font-size: 20px;
+      margin-top: 50px;
+      font-size: 22px;
       color: #333;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>Choose Your Musubi Ranger</h1>
-  <p>Each ranger has a unique source of encouragement</p>
+  <div id="container">
+    <h1>Choose Your Power Ranger</h1>
+    <p>Each ranger has a unique source of encouragement</p>
 
-  <button class="ranger-button Red" onclick="showMessage('Red')">Red Ranger - Feeling Upset</button>
-  <button class="ranger-button Blue" onclick="showMessage('Blue')">Blue Ranger - Stressed</button>
-  <button class="ranger-button Green" onclick="showMessage('Green')">Green Ranger - Burnout</button>
-  <button class="ranger-button Yellow" onclick="showMessage('Yellow')">Yellow Ranger - Tired</button>
-  <button class="ranger-button Pink" onclick="showMessage('Pink')">Pink Ranger - Heartbroken</button>
-  <button class="ranger-button Black" onclick="showMessage('Black')">Black Ranger - Lost Motivation</button>
+    <button class="ranger-button Red" onclick="showMessage('Red')">Red Ranger - Feeling Upset</button>
+    <button class="ranger-button Blue" onclick="showMessage('Blue')">Blue Ranger - Stressed</button>
+    <button class="ranger-button Green" onclick="showMessage('Green')">Green Ranger - Burnout</button>
+    <button class="ranger-button Yellow" onclick="showMessage('Yellow')">Yellow Ranger - Tired</button>
+    <button class="ranger-button Pink" onclick="showMessage('Pink')">Pink Ranger - Heartbroken</button>
+    <button class="ranger-button Black" onclick="showMessage('Black')">Black Ranger - Lost Motivation</button>
+  </div>
 
   <div id="message"></div>
 
@@ -125,10 +138,14 @@
     };
 
     function showMessage(color) {
+      const container = document.getElementById('container');
       const messageBox = document.getElementById('message');
       const msgArray = messages[color];
       const randomMsg = msgArray[Math.floor(Math.random() * msgArray.length)];
-      messageBox.innerText = randomMsg;
+      const signature = `– M.R ${color}`;
+
+      container.classList.add('hidden');
+      messageBox.innerText = `${randomMsg}\n\n${signature}`;
     }
   </script>
 </body>
