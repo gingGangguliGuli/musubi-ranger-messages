@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Ranger Messages</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 40px;
+    }
+    .ranger-button {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+    }
+    .Red { background: #e74c3c; }
+    .Blue { background: #3498db; }
+    .Green { background: #27ae60; }
+    .Yellow { background: #f1c40f; color: black; }
+    .Pink { background: #e91e63; }
+    .Black { background: #2c3e50; }
+    #message {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Choose Your Power Ranger</h1>
+  <p>Each ranger has a unique source of encouragement</p>
+
+  <button class="ranger-button Red" onclick="showMessage('Red')">Red Ranger - Feeling Upset</button>
+  <button class="ranger-button Blue" onclick="showMessage('Blue')">Blue Ranger - Stressed</button>
+  <button class="ranger-button Green" onclick="showMessage('Green')">Green Ranger - Burnout</button>
+  <button class="ranger-button Yellow" onclick="showMessage('Yellow')">Yellow Ranger - Tired</button>
+  <button class="ranger-button Pink" onclick="showMessage('Pink')">Pink Ranger - Heartbroken</button>
+  <button class="ranger-button Black" onclick="showMessage('Black')">Black Ranger - Lost Motivation</button>
+
+  <div id="message"></div>
+
+  <script>
+    const messages = {
+      Red: [
+        "It's okay to feel upset. Tomorrow is a new day.",
+        "Kapit lang, laban lang. Hindi ka nag-iisa.",
+        "Breathe in. Let the anger go. You got this.",
+        "You’re stronger than this moment.",
+        "Hayaan mong umiyak ka ngayon, bukas babangon ka.",
+        "Even storms pass. Stay calm.",
+        "Ang bawat iyak ay hakbang patungo sa lakas.",
+        "Be patient with yourself, healing takes time.",
+        "Don't bottle it up. Let it out. Let it heal.",
+        "You’re doing your best. That’s more than enough."
+      ],
+      Blue: [
+        "Take a deep breath. You're doing better than you think.",
+        "Stress won't last forever. Smile kahit konti. :)",
+        "Isa-isang hakbang lang, kaya mo yan.",
+        "Remember your why.",
+        "Kapag pagod ka na, pahinga ka muna, 'wag susuko.",
+        "Your value isn’t measured by your productivity.",
+        "You don’t have to carry everything alone.",
+        "Ipaubaya mo sa Diyos ang bigat ng dibdib mo.",
+        "You’ve handled tough things before. You will again.",
+        "Trust the process."
+      ],
+      Green: [
+        "You're not a machine. Take time to rest.",
+        "Minsan okay lang mapagod. Tao ka lang.",
+        "You are worthy even when you rest.",
+        "Breaks are part of progress.",
+        "Hinga. Pahinga. Tuloy ulit.",
+        "You’re allowed to pause. You deserve it.",
+        "Napapagod din ang bayani, pero hindi sumusuko.",
+        "Burnout means you gave too much. Now give to yourself.",
+        "Self-care is not selfish.",
+        "You’re more than what you do."
+      ],
+      Yellow: [
+        "Pagod ka lang, hindi ka talo.",
+        "Take a nap. Hydrate. Then try again.",
+        "You don’t always have to be strong.",
+        "Slow down. Life isn’t a race.",
+        "Huwag mong kalimutan, mahalaga ka rin.",
+        "Rest is productive too.",
+        "Recharge like a true ranger.",
+        "Even heroes need a timeout.",
+        "Pag tapos ng dilim, may araw na sisikat.",
+        "Smile. You’re surviving. That’s brave."
+      ],
+      Pink: [
+        "Heartaches heal. Time helps.",
+        "Nasasaktan ka kasi nagmahal ka. Hindi ka mahina.",
+        "You deserve love that doesn’t hurt.",
+        "Cry it out. Then stand tall.",
+        "Puso mo ay matapang. Kaya niyan.",
+        "Let go to grow.",
+        "Hindi mo kailangang manahimik sa sakit.",
+        "Your heart will beat stronger again.",
+        "Pain changes, but so do you.",
+        "The right one will never leave you confused."
+      ],
+      Black: [
+        "When you feel lost, look within.",
+        "Wala ka man sa rurok ngayon, pero patungo ka roon.",
+        "Progress isn’t always visible, but it’s happening.",
+        "Ang bawat araw ay panibagong chance.",
+        "Don’t compare your chapter to someone else’s.",
+        "You’ve made it this far — don’t quit now.",
+        "Even the strongest feel lost sometimes.",
+        "Life isn't a straight path. Detours teach you.",
+        "Balik loob sa sarili. Kaya mo yan.",
+        "Motivation may fade, but discipline will carry you."
+      ]
+    };
+
+    function showMessage(color) {
+      const messageBox = document.getElementById('message');
+      const msgArray = messages[color];
+      const randomMsg = msgArray[Math.floor(Math.random() * msgArray.length)];
+      messageBox.innerText = randomMsg;
+    }
+  </script>
+</body>
+</html>
